@@ -19,10 +19,10 @@ class ProductController extends Controller
         ]);
     }
 
- 
+
     public function store(Request $request)
     {
-        //
+
       
         $request->validate(
             [
@@ -45,7 +45,7 @@ class ProductController extends Controller
             ]);
             } catch (\Throwable $th) {
                 DB::rollBack();
-                log::error($th);
+                Log::error($th);
                 return response()->json([
                     'status'=>'error',
                     
@@ -67,7 +67,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        //
+        
         $request->validate(
             [
                 'name'=>'nullable|string',
